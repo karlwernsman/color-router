@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import Colors from './components/Colors/Colors.js';
 import NotFound from './components/NotFound/NotFound.js';
@@ -9,6 +9,9 @@ function App() {
     <>
       <Header />
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/rgb/38/70/83" />
+        </Route>
         <Route exact path="/rgb/:r/:g/:b" component={Colors} />
         <Route exact path="*" component={NotFound} />
       </Switch>
